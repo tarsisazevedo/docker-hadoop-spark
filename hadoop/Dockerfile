@@ -1,14 +1,14 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 
 ####################
 # JAVA
 ####################
 
-ENV JAVA_HOME		/usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME		/usr/lib/jvm/java-8-openjdk-amd64
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jdk && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y default-jdk && \
     rm -rf /var/lib/apt/lists/*
 
 
@@ -23,7 +23,7 @@ ENV HADOOP_OPTS		-Djava.library.path=/usr/local/hadoop/lib/native
 ENV PATH		$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y wget libzip2 libsnappy1 libssl-dev && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y wget libzip-dev libsnappy-dev libssl-dev && \
     wget http://archive.apache.org/dist/hadoop/core/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz && \
     apt-get remove -y wget && \
     rm -rf /var/lib/apt/lists/* && \
