@@ -17,7 +17,7 @@ RUN apt-get update && \
 # HADOOP
 ####################
 
-ENV HADOOP_VERSION	2.6.0
+ENV HADOOP_VERSION	2.7.5
 ENV HADOOP_HOME		/usr/local/hadoop
 ENV HADOOP_OPTS		-Djava.library.path=/usr/local/hadoop/lib/native
 ENV PATH		$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin

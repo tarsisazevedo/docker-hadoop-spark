@@ -4,10 +4,12 @@ namenode:
         - "50070:50070"
     command: hdfs namenode
     hostname: hdfs-namenode
+    restart: always
 
 datanode:
     image: molab/hadoop
     command: hdfs datanode
+    restart: always
     ports:
         - "50075"
     links:
@@ -16,6 +18,7 @@ datanode:
 secondarynamenode:
     image: molab/hadoop
     command: hdfs secondarynamenode
+    restart: always
     ports:
         - "50090:50090"
     links:
@@ -25,6 +28,7 @@ yarn:
     image: molab/hadoop
     command: start-yarn.sh
     hostname: yarn
+    restart: always
     ports:
      - "8088:8088"
      - "8042:8042"
